@@ -1,4 +1,18 @@
 # JS 笔记
+## 目录
+- [JS 笔记](#js-笔记)
+  - [目录](#目录)
+  - [标准对象](#标准对象)
+    - [1. Date](#1-date)
+    - [2. RegExp](#2-regexp)
+    - [3. JSON](#3-json)
+  - [面向对象](#面向对象)
+    - [基本概念](#基本概念)
+    - [构造方式](#构造方式)
+    - [原型继承](#原型继承)
+    - [class继承](#class继承)
+  - [浏览器](#浏览器)
+
 ## 标准对象
 <div style="text-align:center;">
     <img src="src/img/standardType.png" alt="注意" width="500">
@@ -70,3 +84,30 @@ var s = JSON.stringify(someObject, null, ' ');
 console.log(s);
 // 反序列化
 ```
+
+## 面向对象
+### 基本概念
+<div style='text-align:center'>
+    <img src="src/img/oop.png" alt="OOP" width=60%>
+</div>
+<s><b>类，实例</b></S>:
+不基于类-实例，而是基于原型。JavaScript的原型链和Java的Class区别就在，它没有“Class”的概念，所有对象都是实例。 <br>
+<b>原型链</b>：原型链过长，访问时间变慢。<br>
+<pre>
+    <span>foo ----> Function.prototype ----> Object.prototype ----> null</span>
+</pre>
+<div style='text-align:center'>
+    <img src='src/img/oop-0.png' width=60%>
+</div>
+
+### 构造方式
+[示例代码](src/script/oop-create.js)
+### 原型继承
+### class继承
+关键字<code>class</code>从ES6开始正式被引入到JavaScript中 <br>
+现在用还早了点，因为不是所有的主流浏览器都支持ES6的class。如果一定要现在就用上，就需要一个工具把class代码转换为传统的prototype代码，可以试试Babel这个工具。<br>
+
+## 浏览器
+兼容问题：ES6 \
+<b>浏览器对象</b>：window, navigator... \
+navigator的信息可以很容易地被用户修改，所以JavaScript读取的值不一定是正确的；正确的方法是充分利用JavaScript对不存在属性返回undefined的特性，直接用短路运算符||计算
